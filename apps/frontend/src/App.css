@@ -1,0 +1,5 @@
+@media (max-width: 991.98px) {
+  .ant-layout-content > div {
+    padding-top: 56px !important;
+  }
+}

@@ -9,6 +9,7 @@ import { App as AntdApp } from 'antd';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router';
 import { AppRoutes } from './AppRoutes';
+import './App.css';
 import { ColorModeContextProvider } from './contexts/color-mode';
 import { customDataProvider } from './dataProvider';
 import resourceApps from './resources';
