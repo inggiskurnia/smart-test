@@ -1,0 +1,22 @@
+{
+  "name": "form_input_operation",
+  "version": "0.0.1",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:backend": "turbo run build --filter=backend...",
+    "test:backend": "turbo run test --filter=backend...",
+    "start": "node apps/backend/dist/main",
+    "prod": "turbo run prod"
+  },
+  "packageManager": "npm@10.9.1",
+  "dependencies": {
+    "turbo": "^2.5.4"
+  },
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.0"
+  }
+}

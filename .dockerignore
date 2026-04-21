@@ -1,0 +1,30 @@
+# Node / tooling
+node_modules
+**/node_modules
+.npmrc
+.npm/
+.pnpm-store/
+.yarn/*
+.yarnrc*
+**/.turbo
+**/.cache
+**/coverage
+
+# Builds & artifacts
+dist
+**/dist
+build
+**/build
+
+# VCS & OS
+.git
+.gitignore
+.DS_Store
+
+# Env & logs
+.env
+# **/.env
+*.log
+
+# Keep Docker files
+!docker/*
