@@ -1,6 +1,4 @@
-# Venue & Vehicle Management
-
-![alt text](image.png)
+# Feedback App
 
 before running application, install dependencies:
 ```bash

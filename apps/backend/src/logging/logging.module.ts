@@ -4,10 +4,6 @@ import { getCtx } from './request-context';
 import { redactDeep } from './redact';
 import { HttpLoggingInterceptor } from './http-logging.interceptor';
 import { format, transports } from 'winston';
-import 'winston-daily-rotate-file';
-import * as path from 'node:path';
-
-const LOG_DIR = path.resolve(process.cwd(), 'storage', 'logs');
 
 const addContext = format((info) => {
   const ctx = getCtx();
@@ -23,25 +19,6 @@ const redactFormat = format((info) => {
   }
   return info;
 });
-
-const fileTransport = new transports.DailyRotateFile({
-  dirname: LOG_DIR,
-  filename: 'app-%DATE%.log',
-  datePattern: 'YYYY-MM-DD',
-  maxSize: '20m',
-  maxFiles: '7d',
-  zippedArchive: true,
-  format: format.combine(
-    format.timestamp(),
-    format.errors({ stack: true }),
-    addContext(),
-    redactFormat(),
-    format.json(),
-  ),
-});
-
-fileTransport.on('error', (e) => console.error('DailyRotateFile error:', e));
-fileTransport.on('warning', (w) => console.warn('DailyRotateFile warning:', w));
 
 const consoleFormat = format.combine(
   addContext(),
@@ -66,7 +43,6 @@ const consoleFormat = format.combine(
         new transports.Console({
           format: consoleFormat,
         }),
-        fileTransport,
       ],
     }),
   ],

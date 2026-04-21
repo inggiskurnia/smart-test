@@ -11,7 +11,6 @@ if (testEnv.error) {
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from '../src/app.module';
-import * as request from 'supertest';
 import * as cookieParser from 'cookie-parser';
 
 const requiredTestEnv = ['NODE_ENV', 'APP_ENV', 'NEO4J_HOST', 'NEO4J_DATABASE'];
