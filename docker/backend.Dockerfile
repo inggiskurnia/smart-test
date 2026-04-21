@@ -1,5 +1,5 @@
-# Stage 1: Setup NPM and Install dependency
-FROM node:22-alpine as builder
+# Stage 1: Setup NPM and install dependencies
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -7,8 +7,6 @@ WORKDIR /app
 COPY package*.json turbo.json ./
 COPY apps/backend/package*.json apps/backend/
 COPY apps/backend/.env apps/backend/
-
-# RUN echo "== Debug src/milestone ==" && ls -la /app/apps/backend/src/milestone/entity
 
 RUN npm install
 COPY . .
@@ -20,7 +18,7 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY --from=builder  /app/apps/backend/dist ./dist
+COPY --from=builder /app/apps/backend/dist ./dist
 COPY --from=builder /app/apps/backend/package.json ./
 COPY --from=builder /app/apps/backend/.env ./
 COPY --from=builder /app/apps/backend/storage/app/credential.json /app/storage/app/credential.json
@@ -28,4 +26,4 @@ COPY --from=builder /app/apps/backend/storage/app/credential.json /app/storage/a
 RUN npm install --omit=dev
 
 EXPOSE 8091
-CMD [ "node", "dist/src/main" ]
+CMD ["node", "dist/src/main"]

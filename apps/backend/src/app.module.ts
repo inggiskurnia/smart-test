@@ -4,7 +4,6 @@ import { join } from 'path';
 import { ConfigModule } from './config/config.module';
 import { Neo4jModule } from './neo4j/neo4j.module';
 import { AppFilter, AppGuard } from './app.provider';
-import { MinioModule } from './minio/minio.module';
 import { LoggingModule } from './logging/logging.module';
 import { RequestContextMiddleware } from './logging/request-context.middleware';
 import { HttpLoggingInterceptor } from './logging/http-logging.interceptor';
@@ -20,7 +19,6 @@ import { FeedbackDashboardModule } from './feedback-dashboard/feedback-dashboard
     LoggingModule,
     ConfigModule,
     Neo4jModule.fromEnv(),
-    MinioModule,
     FeedbackDetailModule,
     FeedbackSummaryModule,
     FeedbackDashboardModule,
