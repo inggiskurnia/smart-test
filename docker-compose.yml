@@ -1,12 +1,12 @@
 services:
-  feedback-web:
+  web:
     build:
       context: .
       dockerfile: docker/frontend.Dockerfile
     ports:
-      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8090:80"
 
-  feedback-backend:
+  backend:
     build:
       context: .
       dockerfile: docker/backend.Dockerfile
